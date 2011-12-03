@@ -1,0 +1,12 @@
+{namespace acmis.templates}
+
+/**
+ * Outputs an element from the CMIS service
+ * @param title The title for the asset
+ * @param mimeType The mime type of the asset
+ */
+{template .asset}
+<div class="acmis-asset">
+	{$title} - {$mimeType}
+</div>
+{/template}
