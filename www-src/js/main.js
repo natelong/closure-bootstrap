@@ -1,3 +1,5 @@
+goog.require( 'closureBase.templates' );
+
 (function(){
-	document.body.innerHTML += '<h2>Wooho! It looks like your scripts are working swimmingly!</h2>';
+	document.body.innerHTML += closureBase.templates.test({ text: 'Looks like your scripts are working!' });
 }());

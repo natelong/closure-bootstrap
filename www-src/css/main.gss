@@ -1,3 +1,6 @@
+@def MAIN_FONT_COLOR	#444;
+
 body{
+	color: MAIN_FONT_COLOR;
 	font-family: helvetica, arial, sans-serif;
 }

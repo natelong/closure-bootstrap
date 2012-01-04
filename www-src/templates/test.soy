@@ -1,12 +1,9 @@
-{namespace acmis.templates}
+{namespace closureBase.templates}
 
 /**
- * Outputs an element from the CMIS service
- * @param title The title for the asset
- * @param mimeType The mime type of the asset
+ * Outputs a test element
+ * @param text The text of the element
  */
-{template .asset}
-<div class="acmis-asset">
-	{$title} - {$mimeType}
-</div>
+{template .test}
+<h1>{$text}</h1>
 {/template}
