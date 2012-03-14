@@ -34,7 +34,6 @@ compress-js-simple: js-compiled
 # Run the closure templates compiler on the templates folder
 js-templates:
 	@echo "Compiling JavaScript templates"
-	@mkdir -p tmp
 	@mkdir -p tmp/js
 	@java -jar closure/templates/SoyToJsSrcCompiler.jar \
 		--outputPathFormat tmp/templates/templates.js \
@@ -44,7 +43,6 @@ js-templates:
 # Assemble the scripts file by looking at the main JS file and pulling in any necessary dependencies
 js-compiled: www-src/js/main.js js-templates
 	@echo "Combining JavaScript dependencies"
-	@mkdir -p tmp
 	@mkdir -p tmp/js
 	@closure/library/closure/bin/build/closurebuilder.py \
 	 	--input=www-src/js/main.js \
@@ -59,7 +57,6 @@ js-compiled: www-src/js/main.js js-templates
 # Compile Closure stylesheets
 css: www-src/css/main.gss
 	@echo "Compiling GSS to CSS"
-	@mkdir -p tmp
 	@mkdir -p tmp/css
 	@java -jar closure/stylesheets/closure-stylesheets.jar \
 		-o tmp/css/main.css \
@@ -68,6 +65,5 @@ css: www-src/css/main.gss
 # Copy HTML files into compiled directory
 html:
 	@echo "Copying HTML"
-	@mkdir -p tmp
 	@mkdir -p tmp/html
 	@cp www-src/html/*.html tmp/html/
