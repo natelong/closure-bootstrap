@@ -22,7 +22,7 @@ compress-js-advanced: js-compiled
 		--js_output_file tmp/js/main.xmin.js \
 		--compilation_level ADVANCED_OPTIMIZATIONS
 
-# Compress the js using simple optimizations
+#Compress the js using simple optimizations
 compress-js-simple: js-compiled
 	@echo "Compiling JavaScript with simple optimizations"
 	@java -jar closure/compiler/compiler.jar \
@@ -46,14 +46,15 @@ js-compiled: www-src/js/main.js js-templates
 	@echo "Combining JavaScript dependencies"
 	@mkdir -p tmp
 	@mkdir -p tmp/js
-	@closure/library/closure/bin/calcdeps.py \
-		-i www-src/js/main.js \
-		-p closure/library/closure \
-		-p closure/templates \
-		-p www-src/js \
-		-p tmp/templates \
-		-o script \
-		> tmp/js/main.js
+	@closure/library/closure/bin/build/closurebuilder.py \
+	 	--input=www-src/js/main.js \
+		--root=closure/library/closure/ \
+		--root=closure/library/third_party/closure/ \
+		--root=closure/templates \
+		--root=www-src/js \
+		--root=tmp/templates \
+		--output_mode=script \
+		--output_file=tmp/js/main.js
 
 # Compile Closure stylesheets
 css: www-src/css/main.gss
